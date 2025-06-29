@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CursoCompletoCSharp.View.LIstaPessoas">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            
+
+            <Label 
+                Text="Digite o nome da pessoa:"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <Entry
+                x:Name="NameEntry"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" 
+                BackgroundColor="Aquamarine"
+                IsPassword="False"
+                />
+
+            <Label
+                Text="Selecione a categoria da pessoa"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+            <Grid
+                ColumnDefinitions="Auto, Auto, Auto"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                BackgroundColor="AliceBlue"
+                >
+                <RadioButton
+                    x:Name="ManRadioButton"
+                    Content="Homem"
+                    GroupName="Category"
+                    Grid.Column="0"
+                    />
+
+                <RadioButton
+                    x:Name="WomanRadioButton"
+                    Content="Mulher"
+                    GroupName="Category"
+                    Grid.Column="1"
+                    />
+
+                <RadioButton
+                    x:Name="ChildRadioButton"
+                    Content="Criança"
+                    GroupName="Category"
+                    Grid.Column="2"
+                    
+                                                  />
+            </Grid>
+
+            <Button
+                x:Name="AddListaBtn"
+                Text="Adicionar"
+                BackgroundColor="Bisque"
+                TextColor="Firebrick"
+                Clicked="OnAddListaClick"
+            />
+
+            <CollectionView
+                x:Name="ListaPessoas"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="Ivory"
+                ItemsSource="{Binding pessoas}"
+            >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="Center">
+                            <Label Text="{Binding name}" Margin="5"/>
+                            <Label Text="{Binding gender}" Margin="5" TextColor="LightGray"  FontAttributes="Italic"/>
+                            <Button 
+                                    HorizontalOptions="EndAndExpand"
+                                    Text=" 🗑️ "
+                                    TextColor="DarkSlateBlue"
+                                    BackgroundColor="Cornsilk"                                    
+                                    Clicked="OnDeleteClicked"
+                                    CommandParameter="{Binding .}" />
+                                    
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <Button
+                Padding="20"                
+                Margin="20"
+                x:Name="CalcularBtn"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                BackgroundColor="PaleGoldenrod"
+                Text="Calcular"
+                TextColor="DimGrey"
+                Clicked="OnCalcularClicked"
+            />
+
+            <Label x:Name="labelAviso" Text="" IsVisible="false" TextColor="DarkRed" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+        
+    </ScrollView>
+</ContentPage>
