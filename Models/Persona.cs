@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CursoCompletoCSharp.Models
+namespace CursoCompletoCSharp.Models.Persona
 {
     public class Persona
     {

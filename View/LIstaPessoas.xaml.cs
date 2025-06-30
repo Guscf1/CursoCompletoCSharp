@@ -1,7 +1,7 @@
 namespace CursoCompletoCSharp.View;
 
 using Android.App;
-using CursoCompletoCSharp.Models;
+using CursoCompletoCSharp.Models.Persona;
 using System.Collections.ObjectModel;
 
 
